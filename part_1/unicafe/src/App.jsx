@@ -4,6 +4,25 @@ const Header = ({ text }) => <h1>{text}</h1>
 const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>
 const Feedback = ({ text, amount }) => <p>{text} {amount}</p>
 
+const Statistics = ({ good, neutral, bad }) => {
+
+  const totalAmount = good + neutral + bad
+  const averageAmount = ((good * 1) + (bad * -1)) / totalAmount
+  const positiveAmount = (good / totalAmount) * 100
+
+  return (
+    <div>
+      <Feedback text="Good" amount={good} />
+      <Feedback text="Neutral" amount={neutral} />
+      <Feedback text="Bad" amount={bad} />
+
+      <Feedback text="All" amount={totalAmount} />
+      <Feedback text="Average" amount={averageAmount} />
+      <Feedback text="Positive" amount={positiveAmount + " %"} />
+    </div>
+  )
+}
+
 const App = () => {
   // tallenna napit omaan tilaansa
   const [good, setGood] = useState(0)
@@ -37,13 +56,7 @@ const App = () => {
 
       <Header text="Statistics" />
 
-      <Feedback text="Good" amount={good} />
-      <Feedback text="Neutral" amount={neutral} />
-      <Feedback text="Bad" amount={bad} />
-
-      <Feedback text="All" amount={totalAmount} />
-      <Feedback text="Average" amount={averageAmount} />
-      <Feedback text="Positive" amount={positiveAmount + " %"} />
+      <Statistics good={good} neutral={neutral} bad={bad} />
     </div>
   )
 }
