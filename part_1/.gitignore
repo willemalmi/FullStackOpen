@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# NO exercises
+part1/
+counter/
+leftright/
