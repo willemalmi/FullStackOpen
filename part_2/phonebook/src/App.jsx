@@ -82,6 +82,9 @@ const App = () => {
           setPersons(persons.filter(person => person.id !== response.id))
           setNotification({ 'type': 'success', 'message': `Removed ${response.name}` })
         })
+        .catch(error => {
+          setNotification({ 'type': 'error', 'message': `Information of ${name} has already been removed from server` })
+        })
     }
   }
 
