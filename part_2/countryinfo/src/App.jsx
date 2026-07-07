@@ -19,6 +19,10 @@ const App = () => {
     setFilterName(event.target.value)
   }
 
+  const setFilterNameChange = (filterName) => {
+    setFilterName(filterName)
+  }
+
   const handleFilterCountries = () => {
     setFilterCountries(allCountries.find(country => country.name.common.includes(filterName)))
   }
@@ -30,7 +34,7 @@ const App = () => {
   return (
     <div>
       <Filter filterName={filterName} handleFilterNameChange={handleFilterNameChange} />
-      {countriesToShow.length > 0 ? <CountryList countriesToShow={countriesToShow} /> : null}
+      {countriesToShow.length > 0 ? <CountryList countriesToShow={countriesToShow} handleFilterNameChange={handleFilterNameChange} /> : null}
     </div>
   )
 }
