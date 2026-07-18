@@ -30,7 +30,7 @@ if (name && number) {
     id: String(Math.floor(Math.random() * 12312) + 1)
   })
 
-  person.save().then(result => {
+  person.save().then(() => {
     console.log('person saved!')
     mongoose.connection.close()
   })
