@@ -58,6 +58,10 @@ const App = () => {
           setNewName('')
           setNotification({ 'type': 'success', 'message': `Added ${response.name}` })
         })
+        .catch(error => {
+          console.log(error.response.data.error)
+          setNotification({ 'type': 'error', 'message': `${error.response.data.error}` })
+        })
     }
 
   }
